@@ -62,9 +62,9 @@ public class MyCraMobModerator extends JavaPlugin implements Listener {
         // -- アイアンゴーレムが、何もドロップしないようにする。
         if ( event.getEntityType() == EntityType.IRON_GOLEM ) {
             List<ItemStack> items = event.getDrops();
-            for ( ItemStack i : items ) {
-                System.out.println("-- " + i.getType().toString());
-            }
+            //for ( ItemStack i : items ) {
+            //    System.out.println("-- " + i.getType().toString());
+            //}
             for ( int i=items.size()-1; i>=0; i-- ) {
                 items.remove(i);
             }
