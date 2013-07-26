@@ -1,0 +1,5 @@
+name: MyCraMobModerator
+main: com.github.ucchyocean.mmdm.MyCraMobModerator
+version: 0.1.0
+author: ucchy
+description: MOBの各種調整を行うプラグイン
