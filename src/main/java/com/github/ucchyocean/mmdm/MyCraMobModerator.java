@@ -13,6 +13,7 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.entity.CreatureSpawnEvent;
 import org.bukkit.event.entity.CreatureSpawnEvent.SpawnReason;
 import org.bukkit.event.entity.EntityDeathEvent;
+import org.bukkit.event.entity.EntityPortalEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -42,6 +43,17 @@ public class MyCraMobModerator extends JavaPlugin implements Listener {
         if ( event.getSpawnReason() == SpawnReason.NETHER_PORTAL ) {
             event.setCancelled(true);
         }
+    }
+    
+    /**
+     * Entityがポータルを通過しようとしたときに呼び出されるメソッド
+     * @param event 
+     */
+    @EventHandler
+    public void onPortal(EntityPortalEvent event) {
+        
+        // -- MOBのポータル通過はすべて禁止する。
+        event.setCancelled(true);
     }
     
     /**
