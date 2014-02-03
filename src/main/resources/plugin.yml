@@ -1,5 +1,5 @@
-name: MyCraMobModerator
+name: ${project.name}
 main: com.github.ucchyocean.mmdm.MyCraMobModerator
-version: 0.1.0
+version: ${project.version}
 author: ucchy
-description: MOBの各種調整を行うプラグイン
+description: ${project.description}

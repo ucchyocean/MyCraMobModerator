@@ -7,8 +7,6 @@ package com.github.ucchyocean.mmdm;
 
 import java.util.List;
 
-import org.bukkit.Material;
-import org.bukkit.block.Block;
 import org.bukkit.entity.EntityType;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -40,15 +38,9 @@ public class MyCraMobModerator extends JavaPlugin implements Listener {
     @EventHandler
     public void onCreatureSpawn(CreatureSpawnEvent event) {
         
-        // -- 通常世界に来たピッグゾンビをZAPする。
-        // NOTE: ピッグゾンビが、スポーンエッグでスポーンし、かつ、
-        //       スポーン場所にポータルがあるなら、ZAPする。
-        Block block = event.getLocation().getBlock();
-        if ( event.getEntityType() == EntityType.PIG_ZOMBIE &&
-                event.getSpawnReason() == SpawnReason.SPAWNER_EGG &&
-                block != null && block.getType() == Material.PORTAL ) {
+        // -- 通常世界に来たMOBをZAPする。
+        if ( event.getSpawnReason() == SpawnReason.NETHER_PORTAL ) {
             event.setCancelled(true);
-            //getLogger().finest(">>> ZAP!! <<<");
         }
     }
     
@@ -62,9 +54,6 @@ public class MyCraMobModerator extends JavaPlugin implements Listener {
         // -- アイアンゴーレムが、何もドロップしないようにする。
         if ( event.getEntityType() == EntityType.IRON_GOLEM ) {
             List<ItemStack> items = event.getDrops();
-            //for ( ItemStack i : items ) {
-            //    System.out.println("-- " + i.getType().toString());
-            //}
             for ( int i=items.size()-1; i>=0; i-- ) {
                 items.remove(i);
             }
